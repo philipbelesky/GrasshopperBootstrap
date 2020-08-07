@@ -6,6 +6,8 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 
 - [ ] Grasshopper/RhinoCommon bundled with Nuget
   - *Ensures reference paths are maintained across local environments*
+- [X] Separate out a `release` folder for non-debug builds
+  - *Makes working with Fody and bundling files (e.g. a README) easier
 - [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
