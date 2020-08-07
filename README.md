@@ -13,13 +13,16 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
 - [X] GitHub Pages setup for documentation
   - *See the `docs` folder and the README there
+- [X] Icons Illustrator template with original Grasshopper icons as references
+  - *See the `assets` folder*
 - [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
 - [ ] CD/CI
 - [ ] Fody bundling
 - [ ] Sentry setup?
-- [ ] Icons setup with Illustrator template
+- [ ] Extracting component input/output parmas for doc files?
+- [ ] Extracting GHX metadata for doc files?
 
 #### Requirements
 
