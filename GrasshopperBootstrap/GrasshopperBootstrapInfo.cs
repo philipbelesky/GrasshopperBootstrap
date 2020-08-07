@@ -1,9 +1,9 @@
-﻿using System;
-using System.Drawing;
-using Grasshopper.Kernel;
-
-namespace GrasshopperBootstrap
+﻿namespace GrasshopperBootstrap
 {
+    using System;
+    using System.Drawing;
+    using Grasshopper.Kernel;
+
     public class GrasshopperBootstrapInfo : GH_AssemblyInfo
     {
         public override string Name
@@ -13,22 +13,25 @@ namespace GrasshopperBootstrap
                 return "GrasshopperBootstrap";
             }
         }
+
         public override Bitmap Icon
         {
             get
             {
-                //Return a 24x24 pixel bitmap to represent this GHA library.
+                // Return a 24x24 pixel bitmap to represent this GHA library.
                 return null;
             }
         }
+
         public override string Description
         {
             get
             {
-                //Return a short string describing the purpose of this GHA library.
+                // Return a short string describing the purpose of this GHA library.
                 return "GrasshopperBootstrapTODO: Provide description of the plugin";
             }
         }
+
         public override Guid Id
         {
             get
@@ -41,15 +44,16 @@ namespace GrasshopperBootstrap
         {
             get
             {
-                //Return a string identifying you or your company.
+                // Return a string identifying you or your company.
                 return "GrasshopperBootstrapTODO: Add author name";
             }
         }
+
         public override string AuthorContact
         {
             get
             {
-                //Return a string representing your preferred contact details.
+                // Return a string representing your preferred contact details.
                 return "GrasshopperBootstrapTODO: Add author email";
             }
         }

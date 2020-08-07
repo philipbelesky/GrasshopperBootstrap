@@ -10,10 +10,10 @@ A slightly opinionated starter template for Grasshopper plugin development with 
   - *Makes working with Fody and bundling files (e.g. a README) easier
 - [X] A shared class for all component files to inherent
   - *Allows for shared functionality and/or easy implementation of error reporting*
+- [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
 - [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
-- [ ] Linter
 - [ ] CD/CI
 - [ ] Docs site
 - [ ] Fody bundling

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Grasshopper.Kernel;
-using Rhino;
-
-namespace GrasshopperBootstrap
+﻿namespace GrasshopperBootstrap
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Grasshopper.Kernel;
+    using Rhino;
 
     public abstract class GrasshopperBootstrapComponent : GH_Component
     {
@@ -16,17 +15,18 @@ namespace GrasshopperBootstrap
         // - Very commonly used functions (e.g. retrieving tolerances)
         // - Shared setup tasks (e.g. plugin category; or if wrapping SolveInstance in exception tracking (e.g. Sentry))
 
-        static string pluginCategory = "GrasshopperBootstrap"; // GrasshopperBootstrapTODO: The Grasshopper tab that all components sit in
-        protected readonly double docAngularTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians; 
-        protected readonly double docUnitTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
+        private static string pluginCategory = "GrasshopperBootstrap"; // GrasshopperBootstrapTODO: The Grasshopper tab that all components sit in
+        private static readonly double ModelAngularTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians;
+        private static readonly double ModelAbsoluteTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
 
         // Pass the constructor parameters up to the main GH_Component abstract class
         protected GrasshopperBootstrapComponent(string name, string nickname, string description,  string subCategory)
             : base(name, nickname, description, pluginCategory, subCategory)
         {
         }
-        
+
         // Components must implement the method
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1313:Parameter names should begin with lower-case letter", Justification = "<Pending>")]
         protected abstract void GrasshopperBootstrapSolveInstance(IGH_DataAccess DA);
 
         // Override the main solve instance method. This allows it to be wrapped in a try/catch for error reporting purposes
