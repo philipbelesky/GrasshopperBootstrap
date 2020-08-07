@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <!-- Use deterministic package versions -->
+    <!-- Use deterministic package version -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GHBComponent.cs" />
-    <Compile Include="GHBTestComponent.cs" />
+    <Compile Include="SubCategory\TestComponent.cs" />
     <Compile Include="GrasshopperBootstrapInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SubCategory\GeometryCreation.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Grasshopper">
