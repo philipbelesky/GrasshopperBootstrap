@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.5": {
+      "Grasshopper": {
+        "type": "Direct",
+        "requested": "[6.0.18016.23451, )",
+        "resolved": "6.0.18016.23451",
+        "contentHash": "Te2PeJQsNt7JjBTp6dK3YsHN2m6yKDswbCs49CclWnHdeuHPTUBiLyhJaSFLaRL14Vo1Scsuog+J053xOEZtSw==",
+        "dependencies": {
+          "RhinoCommon": "[6.0.18016.23451]"
+        }
+      },
+      "RhinoCommon": {
+        "type": "Direct",
+        "requested": "[6.0.18016.23451, )",
+        "resolved": "6.0.18016.23451",
+        "contentHash": "1l6lrciyp8uNcfYUBgxbD+onX9nWywnUBrO2ECL+UNhJqhgDIZaEDfkvX24NTgqcftyGgdgytf9lzo8idR28XQ=="
+      }
+    },
+    ".NETFramework,Version=v4.5/win": {},
+    ".NETFramework,Version=v4.5/win-x64": {},
+    ".NETFramework,Version=v4.5/win-x86": {}
+  }
+}
