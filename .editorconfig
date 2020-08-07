@@ -17,3 +17,6 @@ dotnet_diagnostic.CA1303.severity = silent
 
 # CA1062: Validate arguments of public methods
 dotnet_diagnostic.CA1062.severity = suggestion
+
+# SA1615: Element return value should be documented
+dotnet_diagnostic.SA1615.severity = silent
