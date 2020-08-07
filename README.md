@@ -11,11 +11,12 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [X] A shared class for all component files to inherent
   - *Allows for shared functionality and/or easy implementation of error reporting*
 - [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
+- [X] GitHub Pages setup for documentation
+  - *See the `docs` folder and the README there
 - [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
 - [ ] CD/CI
-- [ ] Docs site
 - [ ] Fody bundling
 - [ ] Sentry setup?
 - [ ] Icons setup with Illustrator template
