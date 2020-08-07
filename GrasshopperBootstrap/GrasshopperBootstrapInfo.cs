@@ -26,7 +26,7 @@ namespace GrasshopperBootstrap
             get
             {
                 //Return a short string describing the purpose of this GHA library.
-                return "";
+                return "GrasshopperBootstrapTODO: Provide description of the plugin";
             }
         }
         public override Guid Id
@@ -42,7 +42,7 @@ namespace GrasshopperBootstrap
             get
             {
                 //Return a string identifying you or your company.
-                return "";
+                return "GrasshopperBootstrapTODO: Add author name";
             }
         }
         public override string AuthorContact
@@ -50,7 +50,7 @@ namespace GrasshopperBootstrap
             get
             {
                 //Return a string representing your preferred contact details.
-                return "";
+                return "GrasshopperBootstrapTODO: Add author email";
             }
         }
     }

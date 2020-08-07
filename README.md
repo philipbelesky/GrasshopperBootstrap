@@ -8,6 +8,8 @@ A slightly opinionated starter template for Grasshopper plugin development with 
   - *Ensures reference paths are maintained across local environments*
 - [X] Separate out a `release` folder for non-debug builds
   - *Makes working with Fody and bundling files (e.g. a README) easier
+- [X] A shared class for all component files to inherent
+  - *Allows for shared functionality and/or easy implementation of error reporting*
 - [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
@@ -15,6 +17,7 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [ ] CD/CI
 - [ ] Docs site
 - [ ] Fody bundling
+- [ ] Sentry setup?
 - [ ] Icons setup with Illustrator template
 
 #### Requirements
