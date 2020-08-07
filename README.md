@@ -7,20 +7,20 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [X] Grasshopper/RhinoCommon bundled with Nuget
   - *Ensures reference paths are maintained across local environments*
 - [X] Separate out a `release` folder for non-debug builds
-  - *Makes working with Fody and bundling files (e.g. a README) easier
+  - *Makes working with Fody and bundling files (e.g. a README) easier*
 - [X] A shared class for all component files to inherent
   - *Allows for shared functionality and/or easy implementation of error reporting*
 - [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
 - [X] GitHub Pages setup for documentation
-  - *See the `docs` folder and the README there
+  - *See the `docs` folder and the README there*
 - [X] Icons Illustrator template with original Grasshopper icons as references
   - *See the `assets` folder*
-- [ ] Cross-compatability between MacOS and Windows versions of Visual Studio
+- [ ] Cross-compatibility between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
-- [ ] CD/CI
-- [ ] Fody bundling
-- [ ] Sentry setup?
+- [ ] CD/CI using GitHub actions
+- [ ] Fody bundling of reference dlls
+- [ ] Sentry setup for error reporting?
 - [ ] Extracting component input/output parmas for doc files?
 - [ ] Extracting GHX metadata for doc files?
 
