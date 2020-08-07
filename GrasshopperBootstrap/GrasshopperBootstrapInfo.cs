@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using Grasshopper.Kernel;
+    using GrasshopperBootstrap.Properties;
 
     public class GrasshopperBootstrapInfo : GH_AssemblyInfo
     {
@@ -19,7 +20,7 @@
             get
             {
                 // Return a 24x24 pixel bitmap to represent this GHA library.
-                return null;
+                return Resources.icons_icon_plugin;
             }
         }
 
@@ -36,6 +37,7 @@
         {
             get
             {
+                // GrasshopperBootstrapTODO: regenerate this GUID
                 return new Guid("69263764-3073-4c66-b093-33ad500105f1");
             }
         }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Grasshopper.Kernel;
+    using GrasshopperBootstrap.Properties;
     using Rhino.Geometry;
 
     public class GHBTestComponent : GrasshopperBootstrapComponent
@@ -156,8 +157,7 @@
             get
             {
                 // You can add image files to your project resources and access them like this:
-                // return Resources.IconForThisComponent;
-                return null;
+                return Resources.icons_icon_test;
             }
         }
     }
