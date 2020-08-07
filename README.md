@@ -4,7 +4,7 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 
 #### Features
 
-- [ ] Grasshopper/RhinoCommon bundled with Nuget
+- [X] Grasshopper/RhinoCommon bundled with Nuget
   - *Ensures reference paths are maintained across local environments*
 - [X] Separate out a `release` folder for non-debug builds
   - *Makes working with Fody and bundling files (e.g. a README) easier
@@ -20,6 +20,7 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 #### Requirements
 
 - Visual Studio (2017+?)
+- Rhinoceros 6 or higher (no support for Rhinoceros 5 development OOTB)
 
 #### Setup
 

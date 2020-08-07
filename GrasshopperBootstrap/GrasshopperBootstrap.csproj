@@ -49,10 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Grasshopper">
-      <Version>6.0.18016.23451</Version>
+      <Version>6.0.18016.23451</Version><!-- Earliest possible Rhino 6 support -->
+      <IncludeAssets>compile</IncludeAssets><!-- Don't bundle with builds -->
     </PackageReference>
     <PackageReference Include="RhinoCommon">
-      <Version>6.0.18016.23451</Version>
+      <Version>6.0.18016.23451</Version><!-- Earliest possible Rhino 6 support -->
+      <IncludeAssets>compile</IncludeAssets><!-- Don't bundle with builds -->
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
