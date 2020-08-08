@@ -15,8 +15,9 @@
         /// Subcategory the panel. If you use non-existing tab or panel names,
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public TestComponent()
-          : base("GrasshopperBootstrap", "GHB", "Construct an Archimedean, or arithmetic, spiral given its radii and number of turns.", "Test")
+        public TestComponent() : base(
+            "GrasshopperBootstrap", "GHB",
+            "Construct an Archimedean, or arithmetic, spiral given its radii and number of turns.", "Test")
         {
         }
 
@@ -133,32 +134,19 @@
         /// each of which can be combined with the GH_Exposure.obscure flag, which
         /// ensures the component will only be visible on panel dropdowns.
         /// </summary>
-        public override GH_Exposure Exposure
-        {
-            get { return GH_Exposure.primary; }
-        }
+        public override GH_Exposure Exposure => GH_Exposure.primary;
 
         /// <summary>
         /// Each component must have a unique Guid to identify it.
         /// It is vital this Guid doesn't change otherwise old ghx files
         /// that use the old ID will partially fail during loading.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("932176ea-061e-4b5b-9642-8417372d6372"); }
-        }
+        public override Guid ComponentGuid => new Guid("932176ea-061e-4b5b-9642-8417372d6372");
 
         /// <summary>
         /// Provides an Icon for every component that will be visible in the User Interface.
         /// Icons need to be 24x24 pixels.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                // You can add image files to your project resources and access them like this:
-                return Resources.icons_icon_test;
-            }
-        }
+        protected override System.Drawing.Bitmap Icon => Resources.icons_icon_test;
     }
 }
