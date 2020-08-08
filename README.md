@@ -1,5 +1,7 @@
 ## Grasshopper Bootstrap
 
+![Build Action](https://github.com/philipbelesky/GrasshopperBootstrap/workflows/Grasshopper%20Plugin/badge.svg)
+
 A slightly opinionated starter template for Grasshopper plugin development with a variety of development aids.
 
 #### Features
@@ -15,16 +17,17 @@ A slightly opinionated starter template for Grasshopper plugin development with 
   - *See the `docs` folder and the README there*
 - [X] Icons Illustrator template with original Grasshopper icons as references
   - *See the `assets` folder*
+- [X] CD/CI using GitHub Actions
+  - *See the steps in .github/workflows; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a failed check.*
 - [ ] Cross-compatibility between MacOS and Windows versions of Visual Studio
 - [ ] Unit tests
 - [ ] Performance tests
-- [ ] CD/CI using GitHub actions
 - [ ] Fody bundling of reference dlls
 - [ ] Sentry setup for error reporting?
 - [ ] Bash script for easily generating Yak releases
 - [ ] Extracting component input/output parmas for doc files?
 - [ ] Extracting GHX metadata for doc files?
-- 
+-
 
 #### Requirements
 
