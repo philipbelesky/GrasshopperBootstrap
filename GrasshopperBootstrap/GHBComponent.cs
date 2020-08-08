@@ -9,7 +9,7 @@
     using Grasshopper.Kernel;
     using Rhino;
 
-    public abstract class GrasshopperBootstrapComponent : GH_Component
+    public abstract class GHBComponent : GH_Component
     {
         // This is a base class that can be used by all the plugin's components. This can allow for better code reuse for:
         // - Very commonly used functions (e.g. retrieving tolerances)
@@ -20,7 +20,7 @@
         private static readonly double ModelAbsoluteTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
 
         // Pass the constructor parameters up to the main GH_Component abstract class
-        protected GrasshopperBootstrapComponent(string name, string nickname, string description,  string subCategory)
+        protected GHBComponent(string name, string nickname, string description,  string subCategory)
             : base(name, nickname, description, pluginCategory, subCategory)
         {
         }

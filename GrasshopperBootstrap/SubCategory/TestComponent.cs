@@ -6,7 +6,7 @@
     using GrasshopperBootstrap.Properties;
     using Rhino.Geometry;
 
-    public class TestComponent : GrasshopperBootstrapComponent
+    public class TestComponent : GHBComponent
     {
         /// <summary>
         /// Each implementation of GH_Component must provide a public
