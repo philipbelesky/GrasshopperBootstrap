@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Grasshopper.Kernel;
     using GrasshopperBootstrap.Properties;
+    using GrasshopperBootstrap.SubCategory;
     using Rhino.Geometry;
 
     public class TestComponent : GHBComponent
@@ -16,8 +17,8 @@
         /// new tabs/panels will automatically be created.
         /// </summary>
         public TestComponent() : base(
-            "GrasshopperBootstrap", "GHB",
-            "Construct an Archimedean, or arithmetic, spiral given its radii and number of turns.", "Test")
+            "TestComponent", "TC", "Construct an Archimedean, or arithmetic, spiral given its " +
+            "radii and number of turns.", "Test")
         {
         }
 
@@ -70,10 +71,12 @@
 
             // Then we need to access the input parameters individually.
             // When data cannot be extracted from a parameter, we should abort this method.
-            if (!DA.GetData(0, ref plane)) return;
-            if (!DA.GetData(1, ref radius0)) return;
-            if (!DA.GetData(2, ref radius1)) return;
-            if (!DA.GetData(3, ref turns)) return;
+            // GHB note: There is no need to wrap these getters in a return - components will not
+            //  execute if non-optional values are not provided by users
+            DA.GetData(0, ref plane);
+            DA.GetData(1, ref radius0);
+            DA.GetData(2, ref radius1);
+            DA.GetData(3, ref turns);
 
             // We should now validate the data and warn the user if invalid data is supplied.
             if (radius0 < 0.0)
@@ -96,36 +99,12 @@
 
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:
-            using (Curve spiral = CreateSpiral(plane, radius0, radius1, turns))
+            // GHB note: the function here has been shifted to a separate file (GeometryCreation.cs).
+            using (Curve spiral = GeometryCreation.CreateSpiral(plane, radius0, radius1, turns))
             {
                 // Finally assign the spiral to the output parameter.
                 DA.SetData(0, spiral);
             }
-        }
-
-        private Curve CreateSpiral(Plane plane, double r0, double r1, int turns)
-        {
-            Line l0 = new Line(plane.Origin + r0 * plane.XAxis, plane.Origin + r1 * plane.XAxis);
-            Line l1 = new Line(plane.Origin - r0 * plane.XAxis, plane.Origin - r1 * plane.XAxis);
-
-            Point3d[] p0;
-            Point3d[] p1;
-
-            l0.ToNurbsCurve().DivideByCount(turns, true, out p0);
-            l1.ToNurbsCurve().DivideByCount(turns, true, out p1);
-
-            PolyCurve spiral = new PolyCurve();
-
-            for (int i = 0; i < p0.Length - 1; i++)
-            {
-                Arc arc0 = new Arc(p0[i], plane.YAxis, p1[i + 1]);
-                Arc arc1 = new Arc(p1[i + 1], -plane.YAxis, p0[i + 1]);
-
-                spiral.Append(arc0);
-                spiral.Append(arc1);
-            }
-
-            return spiral;
         }
 
         /// <summary>
@@ -134,6 +113,7 @@
         /// each of which can be combined with the GH_Exposure.obscure flag, which
         /// ensures the component will only be visible on panel dropdowns.
         /// </summary>
+        /// GHB note: following properties are set via arrow assignment to reduce clutter
         public override GH_Exposure Exposure => GH_Exposure.primary;
 
         /// <summary>
@@ -141,12 +121,14 @@
         /// It is vital this Guid doesn't change otherwise old ghx files
         /// that use the old ID will partially fail during loading.
         /// </summary>
+        /// GHB note: new Guids easily generated at https://www.guidgenerator.com
         public override Guid ComponentGuid => new Guid("932176ea-061e-4b5b-9642-8417372d6372");
 
         /// <summary>
         /// Provides an Icon for every component that will be visible in the User Interface.
         /// Icons need to be 24x24 pixels.
         /// </summary>
+        /// GHB note: resources are added under a project's properties, then the resources tab
         protected override System.Drawing.Bitmap Icon => Resources.icons_icon_test;
     }
 }

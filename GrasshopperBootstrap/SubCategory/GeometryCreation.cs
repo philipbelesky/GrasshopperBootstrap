@@ -9,6 +9,7 @@
         /// This is partly to prevent those files from getting overly long and partly to better
         /// faciliate unit testing and performance testing.
         /// </summary>
+        /// <returns>A spiral geometry fitted through the radii/turns provided.</returns>
         public static Curve CreateSpiral(Plane plane, double r0, double r1, int turns)
         {
             Line l0 = new Line(plane.Origin + r0 * plane.XAxis, plane.Origin + r1 * plane.XAxis);

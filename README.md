@@ -21,8 +21,10 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [ ] CD/CI using GitHub actions
 - [ ] Fody bundling of reference dlls
 - [ ] Sentry setup for error reporting?
+- [ ] Bash script for easily generating Yak releases
 - [ ] Extracting component input/output parmas for doc files?
 - [ ] Extracting GHX metadata for doc files?
+- 
 
 #### Requirements
 
