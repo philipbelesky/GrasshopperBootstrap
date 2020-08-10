@@ -27,7 +27,7 @@
 
         // Components must implement the method
         [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1313:Parameter names should begin with lower-case letter", Justification = "<Pending>")]
-        protected abstract void GrasshopperBootstrapSolveInstance(IGH_DataAccess DA);
+        protected abstract void GrasshopperBootstrapSolveInstance(IGH_DataAccess da);
 
         // Override the main solve instance method. This allows it to be wrapped in a try/catch for error reporting purposes
         protected override void SolveInstance(IGH_DataAccess DA)

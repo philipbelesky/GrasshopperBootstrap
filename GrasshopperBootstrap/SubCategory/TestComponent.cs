@@ -58,9 +58,9 @@
         /// <summary>
         /// This is the method that actually does the work.
         /// </summary>
-        /// <param name="DA">The DA object can be used to retrieve data from input parameters and
+        /// <param name="da">The DA object can be used to retrieve data from input parameters and
         /// to store data in output parameters.</param>
-        protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess DA)
+        protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess da)
         {
             // First, we need to retrieve all data from the input parameters.
             // We'll start by declaring variables and assigning them starting values.
@@ -73,10 +73,10 @@
             // When data cannot be extracted from a parameter, we should abort this method.
             // GHB note: There is no need to wrap these getters in a return - components will not
             //  execute if non-optional values are not provided by users
-            DA.GetData(0, ref plane);
-            DA.GetData(1, ref radius0);
-            DA.GetData(2, ref radius1);
-            DA.GetData(3, ref turns);
+            da.GetData(0, ref plane);
+            da.GetData(1, ref radius0);
+            da.GetData(2, ref radius1);
+            da.GetData(3, ref turns);
 
             // We should now validate the data and warn the user if invalid data is supplied.
             if (radius0 < 0.0)
@@ -103,7 +103,7 @@
             using (Curve spiral = GeometryCreation.CreateSpiral(plane, radius0, radius1, turns))
             {
                 // Finally assign the spiral to the output parameter.
-                DA.SetData(0, spiral);
+                da.SetData(0, spiral);
             }
         }
 
