@@ -104,20 +104,44 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+  <!-- ALL BUILDS (rename the DLL to GHA) -->
+  <Choose>
+    <!-- macOS Build Path: No need to rename the GHA; it is built as it should be already -->
+    <When Condition="$([MSBuild]::IsOSUnixLike())"></When>
+    <!-- Windows Build Path: Rename the DLL to be a GHA -->
+    <Otherwise>
+      <PropertyGroup>
+        <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
 Erase "$(TargetPath)"</PostBuildEvent>
-  </PropertyGroup>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
   <PropertyGroup>
     <FallbackCulture>en-US</FallbackCulture>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
-    <StartArguments>
-    </StartArguments>
-    <StartAction>Program</StartAction>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <!-- Use Stylecop linting -->
-  </PropertyGroup>
+  <!-- DEBUG BUILDS (start Rhinoceros) -->
+  <Choose>
+    <!-- macOS Build Path -->
+    <When Condition="$([MSBuild]::IsOSUnixLike())">
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'" >
+        <StartProgram>/Applications/Rhinoceros6.app</StartProgram>
+        <StartArguments></StartArguments>
+        <StartAction>Program</StartAction>
+        <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
+        <RunCodeAnalysis>true</RunCodeAnalysis>
+        <!-- Use Stylecop linting -->
+      </PropertyGroup>
+    </When>
+    <!-- Windows Build Path -->
+    <Otherwise>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+        <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+        <StartArguments></StartArguments>
+        <StartAction>Program</StartAction>
+        <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
+        <RunCodeAnalysis>true</RunCodeAnalysis>
+        <!-- Use Stylecop linting -->
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
 </Project>

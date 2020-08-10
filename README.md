@@ -20,7 +20,8 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [X] CD/CI using GitHub Actions
   - *See the steps in .github/workflows; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a failed check.*
 - [X] 3DM files setup to be stored using [Git Large File Storage](https://git-lfs.github.com)
-- [ ] Cross-compatibility between MacOS and Windows versions of Visual Studio
+- [X] Cross-compatibility between MacOS and Windows versions of Visual Studio
+  - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
 - [ ] Unit tests
 - [ ] Performance tests
 - [ ] Fody bundling of reference dlls
