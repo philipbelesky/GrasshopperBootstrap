@@ -13,7 +13,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><!-- Use deterministic package version -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Use deterministic package version -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -23,8 +24,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis><!-- Use Stylecop linting -->
+    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <!-- Use Stylecop linting -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -35,7 +37,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
     <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis><!-- Use Stylecop linting -->
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <!-- Use Stylecop linting -->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +47,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28WIP%29|AnyCPU'">
+    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -117,12 +124,14 @@
   <!-- ALL BUILDS (rename the DLL to GHA) -->
   <Choose>
     <!-- macOS Build Path: No need to rename the GHA; it is built as it should be already -->
-    <When Condition="$([MSBuild]::IsOSUnixLike())"></When>
+    <When Condition="$([MSBuild]::IsOSUnixLike())">
+    </When>
     <!-- Windows Build Path: Rename the DLL to be a GHA -->
     <Otherwise>
       <PropertyGroup>
         <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
-Erase "$(TargetPath)"</PostBuildEvent><!-- Mental note: this command must be split over 2 lines -->
+Erase "$(TargetPath)"</PostBuildEvent>
+        <!-- Mental note: this command must be split over 2 lines -->
       </PropertyGroup>
     </Otherwise>
   </Choose>
@@ -135,12 +144,14 @@ Erase "$(TargetPath)"</PostBuildEvent><!-- Mental note: this command must be spl
     <When Condition="$([MSBuild]::IsOSUnixLike())">
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
         <StartProgram>/Applications/Rhinoceros.app</StartProgram>
-        <StartArguments></StartArguments>
+        <StartArguments>
+        </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
         <StartProgram>/Applications/RhinoWIP.app</StartProgram>
-        <StartArguments></StartArguments>
+        <StartArguments>
+        </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
     </When>
@@ -148,12 +159,14 @@ Erase "$(TargetPath)"</PostBuildEvent><!-- Mental note: this command must be spl
     <Otherwise>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
         <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
-        <StartArguments></StartArguments>
+        <StartArguments>
+        </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
         <StartProgram>C:\Program Files\Rhino 7 WIP\System\Rhino.exe</StartProgram>
-        <StartArguments></StartArguments>
+        <StartArguments>
+        </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
     </Otherwise>
