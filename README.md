@@ -22,6 +22,8 @@ A slightly opinionated starter template for Grasshopper plugin development with 
 - [X] 3DM files setup to be stored using [Git Large File Storage](https://git-lfs.github.com)
 - [X] Cross-compatibility between MacOS and Windows versions of Visual Studio
   - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
+- [X] Setup to optional debug with WIP versions of Rhinoceros
+  - *Use the Debug (WIP) build option if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.
 - [ ] Unit tests
 - [ ] Performance tests
 - [ ] Fody bundling of reference dlls
