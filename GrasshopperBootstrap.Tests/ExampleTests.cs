@@ -6,12 +6,12 @@
 
     [TestClass]
     public class ExampleTests
-    {        
+    {       
         /// <summary>
         /// Transform a brep using a translation
         /// </summary>
         [TestMethod]
-        public void Brep_Translation()
+        public void TestBrepTranslation()
         {
             // Arrange
             var bb = new BoundingBox(new Point3d(0, 0, 0), new Point3d(100, 100, 100));
@@ -29,7 +29,7 @@
         /// Intersect sphere with a plane to generate a circle
         /// </summary>
         [TestMethod]
-        public void Brep_Intersection()
+        public void TestBrepIntersection()
         {
             // Arrange
             var radius = 4.0;

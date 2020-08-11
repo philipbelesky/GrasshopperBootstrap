@@ -7,7 +7,7 @@
     using GrasshopperBootstrap.SubCategory;
     using Rhino.Geometry;
 
-    public class TestComponent : GHBComponent
+    public class ExampleComponent : GHBComponent
     {
         /// <summary>
         /// Each implementation of GH_Component must provide a public
@@ -16,7 +16,7 @@
         /// Subcategory the panel. If you use non-existing tab or panel names,
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public TestComponent() : base(
+        public ExampleComponent() : base(
             "TestComponent", "TC", "Construct an Archimedean, or arithmetic, spiral given its " +
             "radii and number of turns.", "Test")
         {

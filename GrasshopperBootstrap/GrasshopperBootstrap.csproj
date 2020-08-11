@@ -128,10 +128,9 @@
     </When>
     <!-- Windows Build Path: Rename the DLL to be a GHA -->
     <Otherwise>
+      <!-- Note: we don't erase the dll file - this is so unit tests can access it -->
       <PropertyGroup>
-        <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
-Erase "$(TargetPath)"</PostBuildEvent>
-        <!-- Mental note: this command must be split over 2 lines -->
+        <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"</PostBuildEvent>
       </PropertyGroup>
     </Otherwise>
   </Choose>
