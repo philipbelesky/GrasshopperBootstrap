@@ -7,7 +7,7 @@
     using GrasshopperBootstrap.SubCategory;
     using Rhino.Geometry;
 
-    public class TestComponent : GrasshopperBootstrapComponent
+    public class TestComponent : GHBComponent
     {
         /// <summary>
         /// Each implementation of GH_Component must provide a public
@@ -16,8 +16,9 @@
         /// Subcategory the panel. If you use non-existing tab or panel names,
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public TestComponent()
-          : base("GrasshopperBootstrap", "GHB", "Construct an Archimedean, or arithmetic, spiral given its radii and number of turns.", "Test")
+        public TestComponent() : base(
+            "TestComponent", "TC", "Construct an Archimedean, or arithmetic, spiral given its " +
+            "radii and number of turns.", "Test")
         {
         }
 
@@ -57,9 +58,9 @@
         /// <summary>
         /// This is the method that actually does the work.
         /// </summary>
-        /// <param name="DA">The DA object can be used to retrieve data from input parameters and
+        /// <param name="da">The DA object can be used to retrieve data from input parameters and
         /// to store data in output parameters.</param>
-        protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess DA)
+        protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess da)
         {
             // First, we need to retrieve all data from the input parameters.
             // We'll start by declaring variables and assigning them starting values.
@@ -70,10 +71,12 @@
 
             // Then we need to access the input parameters individually.
             // When data cannot be extracted from a parameter, we should abort this method.
-            if (!DA.GetData(0, ref plane)) return;
-            if (!DA.GetData(1, ref radius0)) return;
-            if (!DA.GetData(2, ref radius1)) return;
-            if (!DA.GetData(3, ref turns)) return;
+            // GHB note: There is no need to wrap these getters in a return - components will not
+            //  execute if non-optional values are not provided by users
+            da.GetData(0, ref plane);
+            da.GetData(1, ref radius0);
+            da.GetData(2, ref radius1);
+            da.GetData(3, ref turns);
 
             // We should now validate the data and warn the user if invalid data is supplied.
             if (radius0 < 0.0)
@@ -96,10 +99,11 @@
 
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:
+            // GHB note: the function here has been shifted to a separate file (GeometryCreation.cs).
             using (Curve spiral = GeometryCreation.CreateSpiral(plane, radius0, radius1, turns))
             {
                 // Finally assign the spiral to the output parameter.
-                DA.SetData(0, spiral);
+                da.SetData(0, spiral);
             }
         }
 
@@ -109,32 +113,22 @@
         /// each of which can be combined with the GH_Exposure.obscure flag, which
         /// ensures the component will only be visible on panel dropdowns.
         /// </summary>
-        public override GH_Exposure Exposure
-        {
-            get { return GH_Exposure.primary; }
-        }
+        /// GHB note: following properties are set via arrow assignment to reduce clutter
+        public override GH_Exposure Exposure => GH_Exposure.primary;
 
         /// <summary>
         /// Each component must have a unique Guid to identify it.
         /// It is vital this Guid doesn't change otherwise old ghx files
         /// that use the old ID will partially fail during loading.
         /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("932176ea-061e-4b5b-9642-8417372d6372"); }
-        }
+        /// GHB note: new Guids easily generated at https://www.guidgenerator.com
+        public override Guid ComponentGuid => new Guid("932176ea-061e-4b5b-9642-8417372d6372");
 
         /// <summary>
         /// Provides an Icon for every component that will be visible in the User Interface.
         /// Icons need to be 24x24 pixels.
         /// </summary>
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                // You can add image files to your project resources and access them like this:
-                return Resources.icons_icon_test;
-            }
-        }
+        /// GHB note: resources are added under a project's properties, then the resources tab
+        protected override System.Drawing.Bitmap Icon => Resources.icons_icon_test;
     }
 }

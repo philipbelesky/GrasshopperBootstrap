@@ -1,2 +1,8 @@
+# Normalise line endings
 * text=auto
+
+# Don't try to diff .ai files
 *.ai binary
+
+# Use Git Large File Storage for 3dm files
+*.3dm filter=lfs diff=lfs merge=lfs -text
