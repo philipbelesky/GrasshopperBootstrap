@@ -54,3 +54,5 @@ The default 'spiral' component from the McNeel sample plugin is included for ref
 ### Acknowledgements
 
 Thanks to Andrew Heumann, Matthew Nelson, and Will Pearson for their recommendations.
+
+Unit testing setup is directly based on the approach of Tom Makin, as [demonstrated in this repository](https://github.com/tmakin/RhinoCommonUnitTesting).

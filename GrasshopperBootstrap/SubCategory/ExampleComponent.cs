@@ -17,8 +17,8 @@
         /// new tabs/panels will automatically be created.
         /// </summary>
         public ExampleComponent() : base(
-            "TestComponent", "TC", "Construct an Archimedean, or arithmetic, spiral given its " +
-            "radii and number of turns.", "Test")
+            "ExampleComponent", "EC", "Construct an Archimedean, or arithmetic, spiral given its " +
+            "radii and number of turns.", "Example")
         {
         }
 

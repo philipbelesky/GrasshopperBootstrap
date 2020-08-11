@@ -42,7 +42,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeometryCreationTests.cs" />
+    <Compile Include="SubCategory\ExampleComponentTests.cs" />
+    <Compile Include="SubCategory\GeometryCreationTests.cs" />
     <Compile Include="ExampleTests.cs" />
     <Compile Include="TestInit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
