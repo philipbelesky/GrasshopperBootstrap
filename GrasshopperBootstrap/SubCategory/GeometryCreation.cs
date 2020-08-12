@@ -1,4 +1,4 @@
-﻿namespace GrasshopperBootstrap.SubCategory
+﻿namespace GrasshopperBootstrap
 {
     using Rhino.Geometry;
 

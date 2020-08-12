@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using Grasshopper.Kernel;
     using GrasshopperBootstrap.Properties;
-    using GrasshopperBootstrap.SubCategory;
+    using GrasshopperBootstrap;
     using Rhino.Geometry;
 
     public class ExampleComponent : GHBComponent

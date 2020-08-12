@@ -3,7 +3,7 @@
     using System;
     using Rhino.Geometry;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using GrasshopperBootstrap.SubCategory;
+    using GrasshopperBootstrap;
 
     [TestClass]
     public class GeometryCreationTests
@@ -18,13 +18,12 @@
             var stubOuterRadius = 100.0;
             var stubTurns = 5;
             var stubPlane = new Plane(new Point3d(0, 0, 0), new Vector3d(0, 0, 1));
+            
+            Curve spiral = GeometryCreation.CreateSpiral(stubPlane, stubInnerRadius, stubOuterRadius, stubTurns);
 
-            var spiral = GeometryCreation.CreateSpiral(stubPlane, stubInnerRadius, stubOuterRadius, stubTurns);
-            //Assert.AreEqual(spiral.IsArc(), true);
-
-            //var spiralPolyCurve = spiral as PolyCurve;
-            //var spiralSegments = spiralPolyCurve.Explode().Length;
-            //Assert.AreEqual(spiralSegments, 10); // Should have 10 segments
+            var spiralPolyCurve = spiral as PolyCurve;
+            var spiralSegments = spiralPolyCurve.Explode().Length;
+            Assert.AreEqual(spiralSegments, 10); // Should have 10 segments
         }
     }
 }

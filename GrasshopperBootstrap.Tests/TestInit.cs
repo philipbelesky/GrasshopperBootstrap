@@ -2,6 +2,7 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.IO;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
@@ -38,15 +39,15 @@
             if (System.IO.Directory.Exists(systemDir) != true)
             {
                 systemDir = systemDirOld;
-            }
-            
+            }            
             Assert.IsTrue(System.IO.Directory.Exists(systemDir), "Rhino system dir not found: {0}", systemDir);
 
-            // Add rhino system directory to path (for RhinoLibrary.dll)
             Environment.SetEnvironmentVariable("path", envPath + ";" + systemDir);
 
             // Add hook for .Net assmbly resolve (for RhinoCommmon.dll)
             AppDomain.CurrentDomain.AssemblyResolve += ResolveRhinoCommon;
+            // Add hook for the actual Tests assembly 
+            AppDomain.CurrentDomain.AssemblyResolve += ResolveGrasshopperBootstrap;
 
             // Start headless Rhino process
             LaunchInProcess(0, 0);
@@ -65,10 +66,27 @@
             return Assembly.LoadFrom(path);
         }
 
+        private static Assembly ResolveGrasshopperBootstrap(object sender, ResolveEventArgs args)
+        {
+            var name = args.Name;
+
+            if (!name.StartsWith("GrasshopperBootstrap"))
+            {
+                return null;
+            }
+
+            // This is the folder that this project itself builds to
+            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
+            string theDirectory = Path.GetDirectoryName(fullPath);  
+
+            var path = System.IO.Path.Combine(theDirectory, "GrasshopperBootstrap.dll");
+            return Assembly.LoadFrom(path);
+        }
+
         [AssemblyCleanup]
         public static void AssemblyCleanup()
         {
-            // Shotdown the rhino process at the end of the test run
+            // Shutdown the rhino process at the end of the test run
             ExitInProcess();
         }
 
