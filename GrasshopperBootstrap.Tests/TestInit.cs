@@ -44,8 +44,10 @@
 
             Environment.SetEnvironmentVariable("path", envPath + ";" + systemDir);
 
-            // Add hook for .Net assmbly resolve (for RhinoCommmon.dll)
+            // Add hook for .Net assmbly resolve (for RhinoCommmon.dll and Grasshopper.dll)
+            // Note that these are copied over manually from the MSBuild steps
             AppDomain.CurrentDomain.AssemblyResolve += ResolveRhinoCommon;
+            AppDomain.CurrentDomain.AssemblyResolve += ResolveGrasshopper;
             // Add hook for the actual Tests assembly 
             AppDomain.CurrentDomain.AssemblyResolve += ResolveGrasshopperBootstrap;
 
@@ -61,8 +63,23 @@
             {
                 return null;
             }
+            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            var path = System.IO.Path.Combine(systemDir, "RhinoCommon.dll");
+            var path = System.IO.Path.Combine(fullPath, "RhinoCommon.dll");
+            return Assembly.LoadFrom(path);
+        }
+
+        private static Assembly ResolveGrasshopper(object sender, ResolveEventArgs args)
+        {
+            var name = args.Name;
+
+            if (!name.StartsWith("Grasshopper"))
+            {
+                return null;
+            }
+            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
+
+            var path = System.IO.Path.Combine(fullPath, "Grasshopper.dll");
             return Assembly.LoadFrom(path);
         }
 
@@ -77,9 +94,8 @@
 
             // This is the folder that this project itself builds to
             string fullPath = AppDomain.CurrentDomain.BaseDirectory;
-            string theDirectory = Path.GetDirectoryName(fullPath);  
 
-            var path = System.IO.Path.Combine(theDirectory, "GrasshopperBootstrap.dll");
+            var path = System.IO.Path.Combine(fullPath, "GrasshopperBootstrap.dll");
             return Assembly.LoadFrom(path);
         }
 
