@@ -14,6 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <FallbackCulture>en-US</FallbackCulture>
     <!-- Use deterministic package version -->
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
@@ -80,10 +81,16 @@
       <IncludeAssets>compile</IncludeAssets>
       <!-- Don't bundle with builds -->
     </PackageReference>
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task">
+      <Version>2.0.18.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
       <Version>2.9.6</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="RhinoCommon">
       <Version>6.0.18016.23451</Version>
@@ -101,6 +108,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="ILRepack.targets" />
     <None Include="packages.lock.json" />
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +134,10 @@
     <!-- macOS Build Path: No need to rename the GHA; it is built as it should be already -->
     <When Condition="$([MSBuild]::IsOSUnixLike())">
     </When>
-    <!-- Windows Build Path: Rename the DLL to be a GHA -->
+    <!-- Windows Build Path: Rename the DLL to be a GHA; but only on non-release builds. -->
+    <!-- On release builds ILRepack is doing this for us -->
     <Otherwise>
-      <PropertyGroup>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' != 'Release|AnyCPU'">
         <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
 Erase "$(TargetPath)"</PostBuildEvent>
         <!-- Mental note: this command must be split over 2 lines -->
@@ -136,7 +145,6 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </Otherwise>
   </Choose>
   <PropertyGroup>
-    <FallbackCulture>en-US</FallbackCulture>
   </PropertyGroup>
   <!-- DEBUG BUILDS (start Rhinoceros) -->
   <Choose>
