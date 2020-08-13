@@ -1,10 +1,12 @@
 name: Grasshopper Plugin
 
-on:
-  push:
-    branches: [ main, develop, master ]
-  pull_request:
-    branches: [ main, develop, master ]
+on: [push, pull_request, release]
+# Enable below if you want to restrict actions to specific branches
+# on:
+#   push:
+#     branches: [ main, develop, master ]
+#   pull_request:
+#     branches: [ main, develop, master ]
 
 jobs:
 
