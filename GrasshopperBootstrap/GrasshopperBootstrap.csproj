@@ -135,9 +135,8 @@
     <!-- On release builds ILRepack is doing this for us -->
     <Otherwise>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' != 'Release|AnyCPU'">
-        <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
-Erase "$(TargetPath)"</PostBuildEvent>
-        <!-- Mental note: this command must be split over 2 lines -->
+        <!-- The DLL is no longer erased after becoming a GHA so the Tests can reference it easily -->
+        <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"</PostBuildEvent>
       </PropertyGroup>
     </Otherwise>
   </Choose>

@@ -45,16 +45,17 @@
     <Compile Include="ExampleTests.cs" />
     <Compile Include="SubCategory\GeometryCreationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestInit.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Grasshopper">
+      <Version>6.0.18016.23451</Version>
+    </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
       <Version>1.3.2</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
       <Version>1.3.2</Version>
-    </PackageReference>
-    <PackageReference Include="RhinoCommon">
-      <Version>6.0.18016.23451</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,4 @@
 ﻿// File from https://github.com/tmakin/RhinoCommonUnitTesting
-
 namespace GrasshopperBootstrap.Tests
 {
     using System;
