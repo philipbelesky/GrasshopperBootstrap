@@ -105,9 +105,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
     <None Include="ILRepack.targets" />
     <None Include="packages.lock.json" />
   </ItemGroup>
