@@ -13,8 +13,15 @@ Most of these features assume you are working on Github, using Visual Studio 201
 
 - [X] Grasshopper/RhinoCommon bundled with Nuget
   - *Ensures reference paths are maintained across local environments*
+- [X] Setup release builds to do to produce a `gha` that including all dependencies
+    - ILRepack is used over ILMerge or Fody for better macOS compatibility. Reference to [this repo](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) for its documentation.
+    - The sample code is setup to bundle Newtonsoft.Json as an example. Be sure to remove this and its reference in `ILRepack.targets` when starting your project!
+- [X] CD/CI using GitHub Actions
+  - *See the steps in .github/workflows; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a failed check.*
+- [X] Cross-compatibility between MacOS and Windows versions of Visual Studio
+  - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
 - [X] Separate out a `release` folder for non-debug builds
-  - *Makes working with Fody and bundling files (e.g. a README) easier*
+  - *Makes working with Yak and bundled assemblies easier*
 - [X] A shared class for all component files to inherent
   - *Allows for shared functionality and/or easy implementation of error reporting*
 - [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
@@ -22,28 +29,18 @@ Most of these features assume you are working on Github, using Visual Studio 201
   - *See the `docs` folder and the README there*
 - [X] Icons Illustrator template with original Grasshopper icons as references
   - *See the `assets` folder*
-- [X] CD/CI using GitHub Actions
-  - *See the steps in .github/workflows; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a failed check.*
 - [X] 3DM files setup to be stored using [Git Large File Storage](https://git-lfs.github.com)
-- [X] Cross-compatibility between MacOS and Windows versions of Visual Studio
-  - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
 - [X] Setup to optionally debug using the WIP versions of Rhinoceros
   - *Use the Debug (WIP) build configuration if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.*
 - [X] Code analysis with Codacy and Code Climate
   - *These are not setup per-se; I've just added badges to this README. To use on your projects you will need to [add](https://github.com/marketplace/codacy) [each](https://github.com/marketplace/code-climate) app via the [GitHub Marketplace](https://github.com/marketplace/code-climate)*
-- [X] Setup the release build process to do to produce a `gha` file including dependencies
-    - ILRepack is used over ILMerge of Fody for better macOS compatibility. Reference to [this repo](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) for its documentation.
-    - The sample code is setup to bundle Newtonsoft.Json as an example. Be sure to remove this and its reference in `ILRepack.targets` when starting your project!
 
 ### Roadmap (PRs welcome!)
 
-- [ ] Unit tests examples
-- [ ] Performance tests examples
-- [ ] Example setup for how to use Sentry for error reporting
-- [ ] Bash script for easily generating Yak releases
-- [ ] Extracting component input/output parmas for doc files?
-- [ ] Extracting GHX metadata for doc files?
-- [ ] Automate releases to Yak via GitHub actions?
+- [ ] Unit tests and performance tests
+- [ ] Error reporting (via Sentry?)
+- [ ] Scripts for easily generating Yak releases
+- [ ] Automate Yak releases via GitHub actions?
 
 ### Setup
 
