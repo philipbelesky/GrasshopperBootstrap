@@ -31,12 +31,14 @@ Most of these features assume you are working on Github, using Visual Studio 201
   - *Use the Debug (WIP) build configuration if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.*
 - [X] Code analysis with Codacy and Code Climate
   - *These are not setup per-se; I've just added badges to this README. To use on your projects you will need to [add](https://github.com/marketplace/codacy) [each](https://github.com/marketplace/code-climate) app via the [GitHub Marketplace](https://github.com/marketplace/code-climate)*
+- [X] Setup the release build process to do to produce a `gha` file including dependencies
+    - ILRepack is used over ILMerge of Fody for better macOS compatibility. Reference to [this repo](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) for its documentation.
+    - The sample code is setup to bundle Newtonsoft.Json as an example. Be sure to remove this and its reference in `ILRepack.targets` when starting your project!
 
 ### Roadmap (PRs welcome!)
 
 - [ ] Unit tests examples
 - [ ] Performance tests examples
-- [ ] Fody or ILMerge bundling of reference dlls
 - [ ] Example setup for how to use Sentry for error reporting
 - [ ] Bash script for easily generating Yak releases
 - [ ] Extracting component input/output parmas for doc files?
