@@ -5,6 +5,7 @@
     using Grasshopper.Kernel;
     using GrasshopperBootstrap.Properties;
     using GrasshopperBootstrap.SubCategory;
+    using Newtonsoft.Json;
     using Rhino.Geometry;
 
     public class TestComponent : GHBComponent
@@ -53,6 +54,10 @@
             // Sometimes you want to hide a specific parameter from the Rhino preview.
             // You can use the HideParameter() method as a quick way:
             // pManager.HideParameter(0);
+
+            // GHB note: This extra parameter is added to ensure Newtonsoft.Json is bundled in the final assembly.
+            // (We are bundling that package as an example of how to merge dependencies into a single GHA).
+            pManager.AddTextParameter("JSON", "J", "Test output", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -104,6 +109,10 @@
             {
                 // Finally assign the spiral to the output parameter.
                 da.SetData(0, spiral);
+
+                // GHB note: See note under RegisterOutputParams for why we are doing this.
+                var testJSON = JsonConvert.SerializeObject(spiral);
+                da.SetData(1, testJSON);
             }
         }
 
