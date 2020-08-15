@@ -32,6 +32,8 @@ Most of these features assume you are working on Github, using Visual Studio 201
   - *See the `docs` folder and the README there*
 - [X] Icons Illustrator template with original Grasshopper icons as references
   - *See the `assets` folder*
+- [X] A bundled template for an "About" component that reports current/latest version and links to documentation
+  - *See `AboutComponent.cs` and `GrasshopperBootstrapInfo.cs`
 - [X] 3DM files setup to be stored using [Git Large File Storage](https://git-lfs.github.com)
 - [X] Setup to optionally debug using the WIP versions of Rhinoceros
   - *Use the Debug (WIP) build configuration if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.*

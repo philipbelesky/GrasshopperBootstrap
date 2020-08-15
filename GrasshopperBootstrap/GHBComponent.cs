@@ -34,5 +34,12 @@
         {
             GrasshopperBootstrapSolveInstance(DA);
         }
+
+        // This is provided to all plugins so it can be passed along to error reporting
+        public static string GetPluginVersion()
+        {
+            var v = Assembly.GetExecutingAssembly().GetName().Version;
+            return v.Major.ToString() + '.' + v.Minor.ToString() + '.' + v.Build.ToString();
+        }
     }
 }
