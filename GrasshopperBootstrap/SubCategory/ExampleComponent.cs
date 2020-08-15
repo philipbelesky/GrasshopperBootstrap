@@ -7,7 +7,7 @@
     using GrasshopperBootstrap.SubCategory;
     using Rhino.Geometry;
 
-    public class TestComponent : GHBComponent
+    public class ExampleComponent : GHBComponent
     {
         /// <summary>
         /// Each implementation of GH_Component must provide a public
@@ -16,7 +16,7 @@
         /// Subcategory the panel. If you use non-existing tab or panel names,
         /// new tabs/panels will automatically be created.
         /// </summary>
-        public TestComponent() : base(
+        public ExampleComponent() : base(
             "TestComponent", "TC", "Construct an Archimedean, or arithmetic, spiral given its " +
             "radii and number of turns.", "Test")
         {
@@ -96,6 +96,10 @@
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Spiral turn count must be bigger than or equal to one");
                 return;
             }
+
+            // GHB note: accessing these shortcuts just to show they exist and to prevent the build warning
+            var aTolerance = DocAngleTolerance;
+            var dTolerance = DocAbsTolerance;
 
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:

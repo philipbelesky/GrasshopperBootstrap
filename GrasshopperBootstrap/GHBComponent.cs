@@ -16,8 +16,8 @@
         // - Shared setup tasks (e.g. plugin category; or if wrapping SolveInstance in exception tracking (e.g. Sentry))
 
         private static string pluginCategory = "GrasshopperBootstrap"; // GrasshopperBootstrapTODO: The Grasshopper tab that all components sit in
-        private static readonly double ModelAngularTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians;
-        private static readonly double ModelAbsoluteTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
+        public static readonly double DocAngleTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians;
+        public static readonly double DocAbsTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
 
         // Pass the constructor parameters up to the main GH_Component abstract class
         protected GHBComponent(string name, string nickname, string description,  string subCategory)
@@ -33,6 +33,13 @@
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             GrasshopperBootstrapSolveInstance(DA);
+        }
+
+        // This is provided to all plugins so it can be passed along to error reporting
+        public static string GetPluginVersion()
+        {
+            var v = Assembly.GetExecutingAssembly().GetName().Version;
+            return v.Major.ToString() + '.' + v.Minor.ToString() + '.' + v.Build.ToString();
         }
     }
 }
