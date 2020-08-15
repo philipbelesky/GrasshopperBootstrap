@@ -1,4 +1,4 @@
-name: Grasshopper Plugin
+name: Build Grasshopper Plugin
 
 on: [push, pull_request, release]
 # Enable below if you want to restrict actions to specific branches
