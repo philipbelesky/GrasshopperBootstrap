@@ -20,6 +20,9 @@ Most of these features assume you are working on Github, using Visual Studio 201
   - *See the steps in .github/workflows; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a failed check.*
 - [X] Cross-compatibility between MacOS and Windows versions of Visual Studio
   - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
+- [X] Unit-test frameworks (sort of)
+  - The GrasshopperBootstrap.Tests project is setup to run its tests within a headless versions of Rhinoceros 7 so that all of Rhinocommon is accessible. Note that it needs to be run as `x64` (under the `Test` menu in Visual Studio).
+  - That same project has a Grasshopper definition that uses [PancakeContract](https://www.food4rhino.com/app/pancakecontract) to run unit tests within Grasshopper.
 - [X] Separate out a `release` folder for non-debug builds
   - *Makes working with Yak and bundled assemblies easier*
 - [X] A shared class for all component files to inherent
@@ -37,8 +40,9 @@ Most of these features assume you are working on Github, using Visual Studio 201
 
 ### Roadmap (PRs welcome!)
 
-- [ ] Unit tests and performance tests
-- [ ] Error reporting (via Sentry?)
+- [ ] Real Unit testing via NodeInCode?
+- [ ] Performance tests using BenchmarkDotNet?
+- [ ] Error reporting using Sentry
 - [ ] Scripts for easily generating Yak releases
 - [ ] Automate Yak releases via GitHub actions?
 
