@@ -4,6 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/20e0e2fd92a1951ccb20/maintainability)](https://codeclimate.com/github/philipbelesky/GrasshopperBootstrap/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/20e0e2fd92a1951ccb20/test_coverage)](https://codeclimate.com/github/philipbelesky/GrasshopperBootstrap/test_coverage)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6a5919298be744a2bc1018bd9e0ec1c2)](https://www.codacy.com/manual/philipbelesky/GrasshopperBootstrap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbelesky/GrasshopperBootstrap&amp;utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A slightly opinionated starter template for Grasshopper plugin development. Comes with a variety of templates and tools to help development. Most are unnecessary for most projects. However, most are easier to remove from a project than to add in.
 
