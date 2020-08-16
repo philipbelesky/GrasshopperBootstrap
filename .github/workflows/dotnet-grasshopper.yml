@@ -20,13 +20,12 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: GrasshopperBootstrap                       # Replace with your solution name, i.e. MyWpfApp.sln.
-      Plugin_File_Name: GrasshopperBootstrap
-      Debug_File_Path: '.\GrasshopperBootstrap\bin\'
-      Release_File_Path: '.\GrasshopperBootstrap\release\'
-      # Test_Project_Path: your-test-project-path                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      # Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      # Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Solution_Name: GrasshopperBootstrap.sln                                           # GrasshopperBootstrapTODO: Replace with your solution name, i.e. MyWpfApp.sln.
+      Plugin_File_Name: GrasshopperBootstrap                                            # GrasshopperBootstrapTODO: Replace with the name of the compiled gha
+      Debug_File_Path: '.\GrasshopperBootstrap\bin\'                                    # GrasshopperBootstrapTODO: replace project path
+      Release_File_Path: '.\GrasshopperBootstrap\release\'                              # GrasshopperBootstrapTODO: replace project path
+      Extra_Build_Flags: '/warnaserror'                                                 # Extra build flags - e.g.  treat warnings as errors
+      Test_Project_Path: GrasshopperBootstrap.Tests\GrasshopperBootstrap.Tests.csproj   # GrasshopperBootstrapTODO: Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
 
     steps:
     - name: Checkout
@@ -50,7 +49,7 @@ jobs:
 
     # Build the application
     - name: Build the application
-      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration $env:Extra_Build_Flags
       env:
         Configuration: ${{ matrix.configuration }}
 
