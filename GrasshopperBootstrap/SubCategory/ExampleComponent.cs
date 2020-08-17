@@ -1,7 +1,6 @@
 ﻿namespace GrasshopperBootstrap
 {
     using System;
-    using System.Collections.Generic;
     using Grasshopper.Kernel;
     using GrasshopperBootstrap.Properties;
     using GrasshopperBootstrap.SubCategory;

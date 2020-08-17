@@ -3,8 +3,6 @@
     using System;
     using System.Linq;
     using System.Net.Http;
-    using System.ServiceModel;
-    using System.ServiceModel.Activation.Configuration;
     using System.ServiceModel.Syndication;
     using System.Xml;
     using Grasshopper.Kernel;
@@ -14,7 +12,8 @@
     {
         public AboutComponent() : base(
             "About GrasshopperBootstrap", "AB", "Displays information about this plugin, including " +
-            "documentation sources and current/latest versions.", "About") { }
+            "documentation sources and current/latest versions.", "About")
+        { }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager) { }
 

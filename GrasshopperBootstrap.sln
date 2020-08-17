@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrasshopperBootstrap", "GrasshopperBootstrap\GrasshopperBootstrap.csproj", "{F41C375B-0EFE-4F49-AB21-283CCD838303}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D70EB218-7E1B-4589-B086-249A0B828B2C}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		GrasshopperBootstrap.ruleset = GrasshopperBootstrap.ruleset
 		README.md = README.md
 	EndProjectSection

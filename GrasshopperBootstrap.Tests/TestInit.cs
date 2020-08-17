@@ -1,14 +1,9 @@
 ﻿namespace GrasshopperBootstrap.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
-    using System.IO;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
     using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public static class TestInit
@@ -79,7 +74,7 @@
             var path = System.IO.Path.Combine(fullPath, "Grasshopper.dll");
             return Assembly.LoadFrom(path);
         }
-        
+
         [AssemblyCleanup]
         public static void AssemblyCleanup()
         {

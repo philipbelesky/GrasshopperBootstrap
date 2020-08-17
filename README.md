@@ -26,7 +26,7 @@ Many of these features assume you are working on Github, using Visual Studio 201
   - That same project has a Grasshopper definition that uses [PancakeContract](https://www.food4rhino.com/app/pancakecontract) to show how to run unit tests within Grasshopper.
 - [X] A shared class for all component files to inherit
   - *Allows for shared functionality and/or easy implementation of error reporting*
-- [X] Linting using FxCop, StyleCop, and a (relatively?) sane set of defaults
+- [X] Linting using FxCop, StyleCop, an `.editorconfig` with a (relatively?) sane set of defaults
 - [X] GitHub Pages setup for documentation
   - *See the `docs` folder and the README there*
 - [X] Icons Illustrator template with some of the original Grasshopper icons provided as references

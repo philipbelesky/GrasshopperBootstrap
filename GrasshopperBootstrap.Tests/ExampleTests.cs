@@ -2,8 +2,8 @@
 namespace GrasshopperBootstrap.Tests
 {
     using System;
-    using Rhino.Geometry;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Rhino.Geometry;
 
     [TestClass]
     public class ExampleTests

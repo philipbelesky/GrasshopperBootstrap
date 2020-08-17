@@ -1,11 +1,6 @@
 ﻿namespace GrasshopperBootstrap
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
-    using System.Text;
-    using System.Threading.Tasks;
     using Grasshopper.Kernel;
     using Rhino;
 
@@ -20,7 +15,7 @@
         public static readonly double DocAbsTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
 
         // Pass the constructor parameters up to the main GH_Component abstract class
-        protected GHBComponent(string name, string nickname, string description,  string subCategory)
+        protected GHBComponent(string name, string nickname, string description, string subCategory)
             : base(name, nickname, description, pluginCategory, subCategory)
         {
         }
