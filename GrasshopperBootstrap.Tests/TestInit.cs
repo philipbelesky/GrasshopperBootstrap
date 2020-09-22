@@ -6,13 +6,15 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1060:Move pinvokes to native methods class", Justification = "<Pending>")]
     public static class TestInit
     {
-        static bool initialized = false;
-        static string systemDir = null;
-        static string systemDirOld = null;
+        static bool initialized;
+        static string systemDir;
+        static string systemDirOld;
 
         [AssemblyInitialize]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1806:Do not ignore method results", Justification = "<Pending>")]
         public static void AssemblyInitialize(TestContext context)
         {
             if (initialized)
@@ -51,7 +53,7 @@
         {
             var name = args.Name;
 
-            if (!name.StartsWith("RhinoCommon"))
+            if (!name.StartsWith("RhinoCommon", StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }
@@ -65,7 +67,7 @@
         {
             var name = args.Name;
 
-            if (!name.StartsWith("Grasshopper"))
+            if (!name.StartsWith("Grasshopper", StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }
@@ -76,6 +78,7 @@
         }
 
         [AssemblyCleanup]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1806:Do not ignore method results", Justification = "<Pending>")]
         public static void AssemblyCleanup()
         {
             // Shutdown the rhino process at the end of the test run

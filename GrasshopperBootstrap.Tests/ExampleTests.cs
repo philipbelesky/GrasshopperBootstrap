@@ -34,15 +34,17 @@ namespace GrasshopperBootstrap.Tests
         {
             // Arrange
             var radius = 4.0;
-            var brep = Brep.CreateFromSphere(new Sphere(new Point3d(), radius));
-            var cuttingPlane = Plane.WorldXY;
+            using (var brep = Brep.CreateFromSphere(new Sphere(new Point3d(), radius)))
+            {
+                var cuttingPlane = Plane.WorldXY;
 
-            // Act
-            Rhino.Geometry.Intersect.Intersection.BrepPlane(brep, cuttingPlane, 0.001, out var curves, out var points);
+                // Act
+                Rhino.Geometry.Intersect.Intersection.BrepPlane(brep, cuttingPlane, 0.001, out var curves, out var points);
 
-            // Assert
-            Assert.AreEqual(1, curves.Length, "Wrong curve count");
-            Assert.AreEqual(2 * Math.PI * radius, curves[0].GetLength(), "Wrong curve length");
+                // Assert
+                Assert.AreEqual(1, curves.Length, "Wrong curve count");
+                Assert.AreEqual(2 * Math.PI * radius, curves[0].GetLength(), "Wrong curve length");
+            }
         }
     }
 }
