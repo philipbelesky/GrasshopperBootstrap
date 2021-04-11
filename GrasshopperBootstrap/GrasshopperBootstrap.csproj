@@ -27,7 +27,7 @@
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -42,9 +42,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet />
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28WIP%29|AnyCPU'">
     <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
@@ -144,13 +141,13 @@
     <!-- macOS Build Path -->
     <When Condition="$([MSBuild]::IsOSUnixLike())">
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-        <StartProgram>/Applications/Rhinoceros.app</StartProgram>
+        <StartProgram>/Applications/Rhino 7.app</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
-      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
-        <StartProgram>/Applications/RhinoWIP.app</StartProgram>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
+        <StartProgram>/Applications/Rhino 6.app</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
@@ -159,13 +156,13 @@
     <!-- Windows Build Path -->
     <Otherwise>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-        <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+        <StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
-      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
-        <StartProgram>C:\Program Files\Rhino 7 WIP\System\Rhino.exe</StartProgram>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
+        <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>

@@ -31,8 +31,8 @@
             // Set path to rhino system directory
             string envPath = Environment.GetEnvironmentVariable("path");
             string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            systemDir = System.IO.Path.Combine(programFiles, "Rhino 7 WIP", "System");
-            systemDirOld = System.IO.Path.Combine(programFiles, "Rhino WIP", "System");
+            systemDir = System.IO.Path.Combine(programFiles, "Rhino 7", "System");
+            systemDirOld = System.IO.Path.Combine(programFiles, "Rhino 6", "System");
             if (System.IO.Directory.Exists(systemDir) != true)
             {
                 systemDir = systemDirOld;

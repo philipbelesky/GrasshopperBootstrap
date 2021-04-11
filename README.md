@@ -34,8 +34,8 @@ Many of these features assume you are working on Github, using Visual Studio 201
 - [X] A bundled template for an "About" component that reports current/latest version and links to documentation
   - *See `AboutComponent.cs` and `GrasshopperBootstrapInfo.cs`*
 - [X] 3DM files setup to be stored using [Git Large File Storage](https://git-lfs.github.com)
-- [X] Setup to optionally debug using the WIP versions of Rhinoceros
-  - *Use the Debug (WIP) build configuration if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.*
+- [X] Setup to optionally debug using the previous versions (v6) of Rhinoceros
+  - *Use the Debug (v6) build configuration if this is desirable. You may want to check the file paths in the `csproj` file match your local paths.*
 - [X] Code analysis with Codacy and Code Climate
   - *These are not setup per-se; I've just added badges to this README. To use these in your projects you will need to [add](https://github.com/marketplace/codacy) [each](https://github.com/marketplace/code-climate) app via the [GitHub Marketplace](https://github.com/marketplace/code-climate)*
 - [X] Message added below components showing current version when running in DEBUG
