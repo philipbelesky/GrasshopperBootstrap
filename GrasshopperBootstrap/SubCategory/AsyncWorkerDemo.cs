@@ -2,11 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Threading;
-    using Grasshopper;
     using Grasshopper.Kernel;
-    using GrasshopperAsyncComponent;
     using Rhino.Geometry;
 
     public class AsyncWorkerDemo : WorkerInstance

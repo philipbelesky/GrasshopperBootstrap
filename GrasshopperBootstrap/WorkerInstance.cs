@@ -1,4 +1,4 @@
-﻿namespace GrasshopperAsyncComponent
+﻿namespace GrasshopperBootstrap
 {
     using System;
     using System.Collections.Generic;

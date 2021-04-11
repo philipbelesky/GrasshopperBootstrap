@@ -7,8 +7,8 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Windows.Forms;
     using Grasshopper.Kernel;
-    using GrasshopperAsyncComponent;
     using Timer = System.Timers.Timer;
 
     public abstract class GHBAsyncComponent : GHBComponent
@@ -148,6 +148,15 @@
             {
                 base.ExpireDownStreamObjects();
             }
+        }
+
+        public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
+        {
+            base.AppendAdditionalMenuItems(menu);
+            Menu_AppendItem(menu, "Cancel", (s, e) =>
+            {
+                RequestCancellation();
+            });
         }
 
         protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess da)

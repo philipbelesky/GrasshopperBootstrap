@@ -1,14 +1,7 @@
 ﻿namespace GrasshopperBootstrap
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
     using Grasshopper.Kernel;
-    using GrasshopperAsyncComponent;
     using GrasshopperBootstrap.Properties;
     using GrasshopperBootstrap.SubCategory;
     using Rhino.Geometry;
@@ -38,14 +31,6 @@
             pManager.AddCurveParameter("Spiral", "S", "Spiral curve", GH_ParamAccess.item);
         }
 
-        public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
-        {
-            base.AppendAdditionalMenuItems(menu);
-            Menu_AppendItem(menu, "Cancel", (s, e) =>
-            {
-                RequestCancellation();
-            });
-        }
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
 
