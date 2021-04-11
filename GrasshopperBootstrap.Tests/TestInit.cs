@@ -1,23 +1,20 @@
 ﻿namespace GrasshopperBootstrap.Tests
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
-    using System.IO;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
     using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Threading.Tasks;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1060:Move pinvokes to native methods class", Justification = "<Pending>")]
     public static class TestInit
     {
-        static bool initialized = false;
-        static string systemDir = null;
-        static string systemDirOld = null;
+        static bool initialized;
+        static string systemDir;
+        static string systemDirOld;
 
         [AssemblyInitialize]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1806:Do not ignore method results", Justification = "<Pending>")]
         public static void AssemblyInitialize(TestContext context)
         {
             if (initialized)
@@ -34,8 +31,8 @@
             // Set path to rhino system directory
             string envPath = Environment.GetEnvironmentVariable("path");
             string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-            systemDir = System.IO.Path.Combine(programFiles, "Rhino 7 WIP", "System");
-            systemDirOld = System.IO.Path.Combine(programFiles, "Rhino WIP", "System");
+            systemDir = System.IO.Path.Combine(programFiles, "Rhino 7", "System");
+            systemDirOld = System.IO.Path.Combine(programFiles, "Rhino 6", "System");
             if (System.IO.Directory.Exists(systemDir) != true)
             {
                 systemDir = systemDirOld;
@@ -56,7 +53,7 @@
         {
             var name = args.Name;
 
-            if (!name.StartsWith("RhinoCommon"))
+            if (!name.StartsWith("RhinoCommon", StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }
@@ -70,7 +67,7 @@
         {
             var name = args.Name;
 
-            if (!name.StartsWith("Grasshopper"))
+            if (!name.StartsWith("Grasshopper", StringComparison.OrdinalIgnoreCase))
             {
                 return null;
             }
@@ -79,8 +76,9 @@
             var path = System.IO.Path.Combine(fullPath, "Grasshopper.dll");
             return Assembly.LoadFrom(path);
         }
-        
+
         [AssemblyCleanup]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1806:Do not ignore method results", Justification = "<Pending>")]
         public static void AssemblyCleanup()
         {
             // Shutdown the rhino process at the end of the test run

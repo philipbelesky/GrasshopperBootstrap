@@ -16,6 +16,8 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <FallbackCulture>en-US</FallbackCulture>
     <!-- Use deterministic package version -->
+    <RhinoPluginType>gha</RhinoPluginType>
+    <RhinoMacLauncher>/Applications/Rhino 7.app</RhinoMacLauncher>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -24,34 +26,24 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
-    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <!-- Use Stylecop linting -->
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <!-- Use Stylecop linting -->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28WIP%29|AnyCPU'">
-    <CodeAnalysisRuleSet>..\GrasshopperBootstrap.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,7 +80,7 @@
       <Version>2.0.18.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
-      <Version>2.9.11</Version>
+      <Version>3.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -150,13 +142,13 @@
     <!-- macOS Build Path -->
     <When Condition="$([MSBuild]::IsOSUnixLike())">
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-        <StartProgram>/Applications/Rhinoceros.app</StartProgram>
+        <StartProgram>/Applications/Rhino 7.app</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
-      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
-        <StartProgram>/Applications/RhinoWIP.app</StartProgram>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
+        <StartProgram>/Applications/Rhino 6.app</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
@@ -165,13 +157,13 @@
     <!-- Windows Build Path -->
     <Otherwise>
       <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-        <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+        <StartProgram>C:\Program Files\Rhino 7\System\Rhino.exe</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
       </PropertyGroup>
-      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (WIP)|AnyCPU'">
-        <StartProgram>C:\Program Files\Rhino 7 WIP\System\Rhino.exe</StartProgram>
+      <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug (v6)|AnyCPU'">
+        <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
         <StartArguments>
         </StartArguments>
         <StartAction>Program</StartAction>
