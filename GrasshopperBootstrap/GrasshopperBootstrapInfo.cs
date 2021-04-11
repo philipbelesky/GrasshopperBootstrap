@@ -23,6 +23,9 @@
         // GHB note: if using the provided "About" component this URL is output there
         public virtual Uri PluginURL => new Uri("https://github.com/philipbelesky/groundhog/");
 
+        // GHB note: if using the provided "About" component this File is output there
+        public virtual Uri ChangeLogURL => new Uri("https://raw.githubusercontent.com/philipbelesky/groundhog/dcc7d1d6423eb991ed70760b38ff7cfff92a49ff/.github/CHANGELOG.md");
+
         // GHB note: if using the provided "About" component this URL is parsed there
         public virtual Uri ReleasesFeed => new Uri("https://github.com/philipbelesky/groundhog/releases.atom");
     }
