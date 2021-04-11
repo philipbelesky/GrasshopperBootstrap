@@ -21,9 +21,9 @@
         public ConcurrentDictionary<string, double> ProgressReports;
         Action done;
         Timer displayProgressTimer;
-        int state = 0;
-        int setData = 0;
-        public List<WorkerInstance> workers;
+        int state;
+        int setData;
+        public List<WorkerInstance> Workers;
         List<Task> tasks;
         public readonly List<CancellationTokenSource> CancellationSources;
 
@@ -56,12 +56,12 @@
             done = () =>
             {
                 Interlocked.Increment(ref state);
-                if (state == workers.Count && setData == 0)
+                if (state == Workers.Count && setData == 0)
                 {
                     Interlocked.Exchange(ref setData, 1);
 
                     // We need to reverse the workers list to set the outputs in the same order as the inputs.
-                    workers.Reverse();
+                    Workers.Reverse();
 
                     Rhino.RhinoApp.InvokeOnUiThread((Action)delegate
                     {
@@ -72,19 +72,19 @@
 
             ProgressReports = new ConcurrentDictionary<string, double>();
 
-            workers = new List<WorkerInstance>();
+            Workers = new List<WorkerInstance>();
             CancellationSources = new List<CancellationTokenSource>();
             tasks = new List<Task>();
         }
 
         public virtual void DisplayProgress(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (workers.Count == 0 || ProgressReports.Values.Count == 0)
+            if (Workers.Count == 0 || ProgressReports.Values.Count == 0)
             {
                 return;
             }
 
-            if (workers.Count == 1)
+            if (Workers.Count == 1)
             {
                 Message = ProgressReports.Values.Last().ToString("0.00%");
             }
@@ -96,7 +96,7 @@
                     total += kvp.Value;
                 }
 
-                Message = (total / workers.Count).ToString("0.00%");
+                Message = (total / Workers.Count).ToString("0.00%");
             }
 
             Rhino.RhinoApp.InvokeOnUiThread((Action)delegate
@@ -120,7 +120,7 @@
             }
 
             CancellationSources.Clear();
-            workers.Clear();
+            Workers.Clear();
             ProgressReports.Clear();
             tasks.Clear();
 
@@ -129,7 +129,7 @@
 
         protected override void AfterSolveInstance()
         {
-            System.Diagnostics.Debug.WriteLine("After solve instance was called " + state + " ? " + workers.Count);
+            System.Diagnostics.Debug.WriteLine("After solve instance was called " + state + " ? " + Workers.Count);
             // We need to start all the tasks as close as possible to each other.
             if (state == 0 && tasks.Count > 0 && setData == 0)
             {
@@ -183,7 +183,7 @@
                 CancellationSources.Add(tokenSource);
 
                 // Add the worker to our list
-                workers.Add(currentWorker);
+                Workers.Add(currentWorker);
 
                 tasks.Add(currentRun);
 
@@ -195,10 +195,10 @@
                 return;
             }
 
-            if (workers.Count > 0)
+            if (Workers.Count > 0)
             {
                 Interlocked.Decrement(ref state);
-                workers[state].SetData(da);
+                Workers[state].SetData(da);
             }
 
             if (state != 0)
@@ -207,7 +207,7 @@
             }
 
             CancellationSources.Clear();
-            workers.Clear();
+            Workers.Clear();
             ProgressReports.Clear();
             tasks.Clear();
 
@@ -225,7 +225,7 @@
             }
 
             CancellationSources.Clear();
-            workers.Clear();
+            Workers.Clear();
             ProgressReports.Clear();
             tasks.Clear();
 
@@ -234,6 +234,5 @@
             Message = "Cancelled";
             OnDisplayExpired(true);
         }
-
     }
 }
