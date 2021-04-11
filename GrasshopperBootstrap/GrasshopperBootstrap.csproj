@@ -67,7 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SubCategory\GeometryCreation.cs" />
+    <Compile Include="GHBAsyncComponent.cs" />
+    <Compile Include="SubCategory\ExampleAsyncComponent.cs" />
+    <Compile Include="SubCategory\AsyncWorkerDemo.cs" />
+    <Compile Include="WorkerInstance.cs" />
+    <Compile Include="SubCategory\ModularityDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Grasshopper">

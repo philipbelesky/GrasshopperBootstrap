@@ -105,7 +105,7 @@
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:
             // GHB note: the function here has been shifted to a separate file (GeometryCreation.cs).
-            using (Curve spiral = GeometryCreation.CreateSpiral(plane, radius0, radius1, turns))
+            using (Curve spiral = ModularityDemo.CreateSpiral(plane, radius0, radius1, turns))
             {
                 // Finally assign the spiral to the output parameter.
                 da.SetData(0, spiral);
