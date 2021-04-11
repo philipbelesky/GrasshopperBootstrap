@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.10.0] - 2021-04-11
 
+### Added
+
+- Option to ingest a CHANGELOG in the About component
+- Tests (in Grasshopper) for the About component
+
 ### Changed
 
 - Rework debug builds to default to Rhino 7

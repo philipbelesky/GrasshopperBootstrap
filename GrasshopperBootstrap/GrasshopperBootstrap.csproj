@@ -16,6 +16,8 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <FallbackCulture>en-US</FallbackCulture>
     <!-- Use deterministic package version -->
+    <RhinoPluginType>gha</RhinoPluginType>
+    <RhinoMacLauncher>/Applications/Rhino 7.app</RhinoMacLauncher>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -36,7 +38,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
