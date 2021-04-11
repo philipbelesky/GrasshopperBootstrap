@@ -26,6 +26,9 @@ Many of these features assume you are working on Github, using Visual Studio 201
   - *That same project has a Grasshopper definition that uses [PancakeContract](https://www.food4rhino.com/app/pancakecontract) to show how to run unit tests within Grasshopper.*
 - [X] A shared class for all component files to inherit
   - *Allows for shared functionality and/or easy implementation of error reporting*
+- [X] Affordances (via the shared class) for easily outputting debug and profiling information
+  - *When using DEBUG builds, all components have a `Debug` output paramater designed to be connected to a Panel component*
+  - *Basic profiling information can be logged to this output with `LogTiming(msg)` as can general information with `LogGeneral(msg)`* 
 - [X] Linting using FxCop, StyleCop, an `.editorconfig` with a (relatively?) sane set of defaults
 - [X] GitHub Pages setup for documentation
   - *See the `docs` folder and the README there*

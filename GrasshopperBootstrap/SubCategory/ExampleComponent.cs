@@ -43,7 +43,7 @@
         /// <summary>
         /// Registers all the output parameters for this component.
         /// </summary>
-        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
+        protected override void GrasshopperBootstrapRegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             // Use the pManager object to register your output parameters.
             // Output parameters do not have default values, but they too must have the correct access type.
@@ -96,10 +96,11 @@
                 return;
             }
 
+            LogTiming("Initial setup"); // Debug Info
+
             // GHB note: accessing these shortcuts just to show they exist and to prevent the build warning
             var aTolerance = DocAngleTolerance;
             var dTolerance = DocAbsTolerance;
-            Console.WriteLine("Angle tolerance: {0}\n Absolute tolerance: {1}", aTolerance, dTolerance);
 
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:
@@ -109,6 +110,9 @@
                 // Finally assign the spiral to the output parameter.
                 da.SetData(0, spiral);
             }
+
+            LogTiming("Creating spiral"); // Debug Info
+            LogGeneral(string.Format("Angle tolerance: {0}\nAbsolute tolerance: {1}", aTolerance, dTolerance));
         }
 
         /// <summary>

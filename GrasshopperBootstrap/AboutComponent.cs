@@ -20,7 +20,7 @@
             // No input parameters needed
         }
 
-        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
+        protected override void GrasshopperBootstrapRegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Current Version", "cV", "The version of the installed plugin.", GH_ParamAccess.item);
             pManager.AddTextParameter("Latest Version", "lV", "The latest released version of the installed plugin.", GH_ParamAccess.item);
@@ -33,8 +33,10 @@
         {
             var assemblyInfo = new GrasshopperBootstrapInfo();
             da.SetData(0, GetPluginVersion());
+            LogTiming("Setup"); // Debug Info
             da.SetData(1, GetLatestVersion(assemblyInfo.ReleasesFeed));
             da.SetData(2, GetLatestChanges(assemblyInfo.ChangeLogURL));
+            LogTiming("URL fetching"); // Debug Info
             da.SetData(3, assemblyInfo.Description);
             da.SetData(4, assemblyInfo.PluginURL.ToString());
         }

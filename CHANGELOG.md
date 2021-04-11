@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Methods to the shared class that enable easy logging and profiling
 
 
 ## [0.10.0] - 2021-04-11
@@ -23,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fixed build process
+
 
 ## [0.9.0] - 2020-08-15
 
