@@ -99,6 +99,7 @@
             // GHB note: accessing these shortcuts just to show they exist and to prevent the build warning
             var aTolerance = DocAngleTolerance;
             var dTolerance = DocAbsTolerance;
+            Console.WriteLine("Angle tolerance: {0}\n Absolute tolerance: {1}", aTolerance, dTolerance);
 
             // We're set to create the spiral now. To keep the size of the SolveInstance() method small,
             // the actual functionality will be in a different method:

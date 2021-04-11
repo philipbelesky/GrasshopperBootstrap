@@ -15,7 +15,10 @@
             "documentation sources and current/latest versions.", "About")
         { }
 
-        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager) { }
+        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
+        {
+            // No input parameters needed
+        }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -42,9 +45,10 @@
             using (var xmlReader = XmlReader.Create(result))
             {
                 SyndicationFeed feed = SyndicationFeed.Load(xmlReader);
-
                 if (feed != null)
+                {
                     version = feed.Items.First().Title.Text;
+                }
             }
 
             client.Dispose();
