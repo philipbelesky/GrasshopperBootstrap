@@ -17,7 +17,7 @@
         public static readonly double DocAngleTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians;
         public static readonly double DocAbsTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
 
-        protected List<string> debugLogs; // StopWatch profiling output
+        protected List<string> debugLogs; // Debug parameter output
         protected Stopwatch debugTimer;
         protected int indexOfDebugOutput; // Tracking where to output logs
 
