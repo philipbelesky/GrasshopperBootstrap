@@ -31,7 +31,6 @@
             pManager.AddCurveParameter("Spiral", "S", "Spiral curve", GH_ParamAccess.item);
         }
 
-
         public override GH_Exposure Exposure => GH_Exposure.primary;
 
         public override Guid ComponentGuid => new Guid("932176ea-061e-4b5b-9642-8417372d6371");

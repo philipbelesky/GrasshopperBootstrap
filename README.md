@@ -24,6 +24,7 @@ Many of these features assume you are working on Github, using Visual Studio 201
   - *See the steps in `.github/workflows/dotnet-tests.xml`; currently the action will run the tests defined in GrasshopperBootstrap.Tests. Note that these tests can't depend on Rhinocommon.*
 - [X] Unit-testing framework (sort of)
   - *The `GrasshopperBootstrap.RhinoTests` project is setup to run its tests within a headless version of Rhinoceros 7 so that all of Rhinocommon is accessible. Note that this project needs to be run as `x64` (under the `Test` menu in Visual Studio).*
+  - *The `GrasshopperBoostrap.Tests` project is setup to run its tests without Rhinocommon access. This is mostly useful for doing CI testing (e.g. the GitHub action described above).
   - *That same project has a Grasshopper definition that uses [PancakeContract](https://www.food4rhino.com/app/pancakecontract) to show how to run unit tests within Grasshopper.*
 - [X] A shared class for all component files to inherit
   - *Allows for shared functionality and/or easy implementation of error reporting*

@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2021-04-13
+
 ### Added
 
 - Methods to the shared class that enable easy logging and profiling
 - Inheritance affordances for creating Async components as per [Dimitre's GrasshopperAsyncComponent](https://github.com/specklesystems/GrasshopperAsyncComponent/)
-
+- GitHub Action added to run tests defined in `GrasshopperBootstrapTests`
 
 ## [0.10.0] - 2021-04-11
 
