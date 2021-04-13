@@ -30,31 +30,17 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     # Restore the tests
-    - name: Restore main project
-      run: msbuild GrasshopperBootstrap /t:Restore /p:Configuration="Debug"
-
-    # Build the application
-    - name: Build main project
-      run: msbuild GrasshopperBootstrap /p:Configuration="Debug"
-
-    - name: Test2
-      run: ls GrasshopperBootstrap\
-
-    # Restore the tests
     - name: Restore tests project
-      run: msbuild GrasshopperBootstrap.Tests /t:Restore /p:Configuration="Debug"
+      run: msbuild $env:Tests_Name /t:Restore /p:Configuration="Debug"
 
     # Build the tests
     - name: Build main project
-      run: msbuild GrasshopperBootstrap.Tests /p:Configuration="Debug"
-
-    - name: Test2
-      run: ls GrasshopperBootstrap.Tests\
+      run: msbuild $env:Tests_Name /p:Configuration="Debug"
 
     # Required to add VSTest to path (instead of adding mstest to path)
     - name: Setup VSTest.exe
       uses: Malcolmnixon/Setup-VSTest@v4
 
     # Run the actual tests
-    - name: VSTest
-      run: vstest.console GrasshopperBootstrap.Tests\bin\Debug\GrasshopperBootstrap.Tests.dll
+    - name: Run unit tests
+      run: vstest.console $env:Tests_Name\bin\Debug\$env:Tests_Name.dll
