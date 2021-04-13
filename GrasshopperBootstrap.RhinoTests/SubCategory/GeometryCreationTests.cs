@@ -1,4 +1,4 @@
-﻿namespace GrasshopperBootstrap.Tests
+﻿namespace GrasshopperBootstrap.RhinoTests
 {
     using GrasshopperBootstrap.SubCategory;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

@@ -34,5 +34,10 @@
 
             return spiral;
         }
+
+        public static int DummyMethodUsedByExampleTests(int a, int b)
+        {
+            return a + b;
+        }
     }
 }

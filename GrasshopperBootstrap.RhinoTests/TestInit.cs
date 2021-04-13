@@ -1,4 +1,4 @@
-﻿namespace GrasshopperBootstrap.Tests
+﻿namespace GrasshopperBootstrap.RhinoTests
 {
     using System;
     using System.Reflection;
