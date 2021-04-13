@@ -52,6 +52,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
+    - name: Test2
+      run: ls GrasshopperBootstrap\
+
     # Build the application
     - name: Build the application
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
