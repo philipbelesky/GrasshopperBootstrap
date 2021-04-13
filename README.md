@@ -1,6 +1,7 @@
 # Grasshopper Bootstrap
 
 [![Build Action](https://github.com/philipbelesky/GrasshopperBootstrap/workflows/Build%20Grasshopper%20Plugin/badge.svg)](https://github.com/philipbelesky/GrasshopperBootstrap/actions/workflows/dotnet-grasshopper.yml)
+[![Test Action](https://github.com/philipbelesky/GrasshopperBootstrap/workflows/Test%20Grasshopper%20Plugin/badge.svg)](https://github.com/philipbelesky/GrasshopperBootstrap/actions/workflows/dotnet-tests.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/20e0e2fd92a1951ccb20/maintainability)](https://codeclimate.com/github/philipbelesky/GrasshopperBootstrap/maintainability)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6a5919298be744a2bc1018bd9e0ec1c2)](https://www.codacy.com/manual/philipbelesky/GrasshopperBootstrap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbelesky/GrasshopperBootstrap&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -16,12 +17,13 @@ Many of these features assume you are working on Github, using Visual Studio 201
 - [X] Setup release builds to produce a single `gha` that includes all other dependent `dlls`
   - *ILRepack is used over ILMerge or Fody for better macOS compatibility. Refer to [this repo](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) for its documentation.*
   - *The sample code is setup to bundle Newtonsoft.Json as an example. Be sure to remove this and its reference in `ILRepack.targets` when starting your project!*
-- [X] Continuous Integration using GitHub Actions
-  - *See the steps in `.github/workflows/dotnet-grasshopper.xml`; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a fail.*
 - [X] Cross-compatibility between macOS and Windows versions of Visual Studio
   - *`GrasshopperBootstrap.csproj` defines split build paths so that each OS will start its own version of Rhinoceros*
+- [X] Continuous Integration using GitHub Actions
+  - *See the steps in `.github/workflows/dotnet-grasshopper.xml`; currently the action will build the application and then upload the gha file from the Release build as an artefact. Build or linting failures will trigger a fail.*
+  - *See the steps in `.github/workflows/dotnet-tests.xml`; currently the action will run the tests defined in GrasshopperBootstrap.Tests. Note that these tests can't depend on Rhinocommon.*
 - [X] Unit-testing framework (sort of)
-  - *The `GrasshopperBootstrap.Tests` project is setup to run its tests within a headless version of Rhinoceros 7 so that all of Rhinocommon is accessible. Note that this project needs to be run as `x64` (under the `Test` menu in Visual Studio).*
+  - *The `GrasshopperBootstrap.RhinoTests` project is setup to run its tests within a headless version of Rhinoceros 7 so that all of Rhinocommon is accessible. Note that this project needs to be run as `x64` (under the `Test` menu in Visual Studio).*
   - *That same project has a Grasshopper definition that uses [PancakeContract](https://www.food4rhino.com/app/pancakecontract) to show how to run unit tests within Grasshopper.*
 - [X] A shared class for all component files to inherit
   - *Allows for shared functionality and/or easy implementation of error reporting*
