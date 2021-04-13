@@ -12,7 +12,7 @@
         // This implementation is a near-direct copy of that published in [this repository](https://github.com/specklesystems/GrasshopperAsyncComponent/)
 
         public ExampleAsyncComponent() : base(
-            "TestAsyncComponent", "TCA", "Provides a demonstration of a component that does work asynchronously", "AsyncTest")
+            "TestAsyncComponent", "TCA", "Provides a demonstration of a component that does work asynchronously", "Examples")
         {
             BaseWorker = new AsyncWorkerDemo();
         }

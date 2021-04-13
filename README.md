@@ -1,8 +1,7 @@
-## Grasshopper Bootstrap
+# Grasshopper Bootstrap
 
 [![Build Action](https://github.com/philipbelesky/GrasshopperBootstrap/workflows/Build%20Grasshopper%20Plugin/badge.svg)](https://github.com/philipbelesky/GrasshopperBootstrap/actions/workflows/dotnet-grasshopper.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/20e0e2fd92a1951ccb20/maintainability)](https://codeclimate.com/github/philipbelesky/GrasshopperBootstrap/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/20e0e2fd92a1951ccb20/test_coverage)](https://codeclimate.com/github/philipbelesky/GrasshopperBootstrap/test_coverage)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6a5919298be744a2bc1018bd9e0ec1c2)](https://www.codacy.com/manual/philipbelesky/GrasshopperBootstrap?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=philipbelesky/GrasshopperBootstrap&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -28,7 +27,7 @@ Many of these features assume you are working on Github, using Visual Studio 201
   - *Allows for shared functionality and/or easy implementation of error reporting*
 - [X] Affordances (via a shared `GHBComponent` class) for easily outputting debug and profiling information
   - *When using DEBUG builds, all components have a `Debug` output paramater designed to be connected to a Panel component*
-  - *Basic profiling information can be logged to this output with `LogTiming(msg)` as can general information with `LogGeneral(msg)`* 
+  - *Basic profiling information can be logged to this output with `LogTiming(msg)` as can general information with `LogGeneral(msg)`*
 - [X] Affordances (via a shared `GHBAsyncComponent` class) for easily creating Asychronous components
   - *See [this repository](https://github.com/specklesystems/GrasshopperAsyncComponent/tree/main) and [this blogpost](https://speckle.systems/blog/async-gh/)*
   - (The implementation used here is a near-direct copy, including the example `AsyncWorkerExample`)
