@@ -2,7 +2,7 @@
 {
     using Rhino.Geometry;
 
-    public static class GeometryCreation
+    public static class ModularityDemo
     {
         /// <summary>
         /// Core functionality of each component is split out of the actual component file
@@ -33,6 +33,11 @@
             }
 
             return spiral;
+        }
+
+        public static int DummyMethodUsedByExampleTests(int a, int b)
+        {
+            return a + b;
         }
     }
 }

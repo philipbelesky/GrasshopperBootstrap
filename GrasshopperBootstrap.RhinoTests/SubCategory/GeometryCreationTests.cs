@@ -1,4 +1,4 @@
-﻿namespace GrasshopperBootstrap.Tests
+﻿namespace GrasshopperBootstrap.RhinoTests
 {
     using GrasshopperBootstrap.SubCategory;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,7 +18,7 @@
             var stubTurns = 5;
             var stubPlane = new Plane(new Point3d(0, 0, 0), new Vector3d(0, 0, 1));
 
-            using (var spiral = GeometryCreation.CreateSpiral(stubPlane, stubInnerRadius, stubOuterRadius, stubTurns))
+            using (var spiral = ModularityDemo.CreateSpiral(stubPlane, stubInnerRadius, stubOuterRadius, stubTurns))
             {
                 var spiralPolyCurve = spiral as PolyCurve;
                 var spiralSegments = spiralPolyCurve.Explode().Length;

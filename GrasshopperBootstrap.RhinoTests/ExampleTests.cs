@@ -1,5 +1,5 @@
 ﻿// File from https://github.com/tmakin/RhinoCommonUnitTesting
-namespace GrasshopperBootstrap.Tests
+namespace GrasshopperBootstrap.RhinoTests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
