@@ -32,13 +32,14 @@
         protected override void GrasshopperBootstrapSolveInstance(IGH_DataAccess da)
         {
             var assemblyInfo = new GrasshopperBootstrapInfo();
+            // Do the non-fetch based outputs first
             da.SetData(0, GetPluginVersion());
+            da.SetData(3, assemblyInfo.Description);
+            da.SetData(4, assemblyInfo.PluginURL.ToString());
             LogTiming("Setup"); // Debug Info
             da.SetData(1, GetLatestVersion(assemblyInfo.ReleasesFeed));
             da.SetData(2, GetLatestChanges(assemblyInfo.ChangeLogURL));
             LogTiming("URL fetching"); // Debug Info
-            da.SetData(3, assemblyInfo.Description);
-            da.SetData(4, assemblyInfo.PluginURL.ToString());
         }
 
         private static string GetLatestVersion(Uri feedURL)
