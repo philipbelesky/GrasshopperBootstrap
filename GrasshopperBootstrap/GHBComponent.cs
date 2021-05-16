@@ -16,6 +16,7 @@
         private static string pluginCategory = "GrasshopperBootstrap"; // GrasshopperBootstrapTODO: The Grasshopper tab that all components sit in
         public static readonly double DocAngleTolerance = RhinoDoc.ActiveDoc.ModelAngleToleranceRadians;
         public static readonly double DocAbsTolerance = RhinoDoc.ActiveDoc.ModelAbsoluteTolerance;
+        public static readonly UnitSystem DocUnits = RhinoDoc.ActiveDoc.ModelUnitSystem;
 
         protected List<string> debugLogs; // Debug parameter output
         protected Stopwatch debugTimer;
