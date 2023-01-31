@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.0.3.6)
+    activesupport (6.0.6.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -16,7 +16,7 @@ GEM
     colorator (1.1.0)
     commonmarker (0.17.13)
       ruby-enum (~> 0.5)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.2.0)
     dnsruby (1.61.4)
       simpleidn (~> 0.1)
     em-websocket (0.5.2)
@@ -67,12 +67,12 @@ GEM
       jekyll-theme-time-machine (= 0.1.1)
       jekyll-titles-from-headings (= 0.5.3)
       jemoji (= 0.11.1)
-      kramdown (= 2.3.1)
+      kramdown (= 2.3.0)
       kramdown-parser-gfm (= 1.1.0)
       liquid (= 4.0.3)
       mercenary (~> 0.3)
       minima (= 2.5.1)
-      nokogiri (>= 1.11.0, < 2.0)
+      nokogiri (>= 1.10.4, < 2.0)
       rouge (= 3.19.0)
       terminal-table (~> 1.4)
     github-pages-health-check (1.16.1)
@@ -192,7 +192,7 @@ GEM
       gemoji (~> 3.0)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
-    kramdown (2.3.1)
+    kramdown (2.3.0)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -206,7 +206,7 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    minitest (5.14.4)
+    minitest (5.17.0)
     multipart-post (2.1.1)
     nokogiri (1.11.5)
       mini_portile2 (~> 2.5.0)
@@ -248,7 +248,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
-    zeitwerk (2.4.2)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
